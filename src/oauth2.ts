@@ -7,6 +7,7 @@ export interface IOAuth2Options {
   name: string;
   url: string;
   clientId: string;
+  accessTokenUrl: string;
   authorizationEndpoint: string;
   redirectUri: string;
   scope: string[];
@@ -48,6 +49,7 @@ export default class OAuth2 {
       name: null,
       url: null,
       clientId: null,
+      accessTokenUrl: null,
       authorizationEndpoint: null,
       redirectUri: null,
       scope: null,
@@ -122,9 +124,7 @@ export default class OAuth2 {
       payload.state = oauthData.state;
     }
 
-    let exchangeForTokenUrl = this.SatellizerConfig.baseUrl ?
-      joinUrl(this.SatellizerConfig.baseUrl, this.defaults.url) :
-      this.defaults.url;
+    let exchangeForTokenUrl = this.defaults.accessTokenUrl;
 
     return this.$http.post(exchangeForTokenUrl, payload, { withCredentials: this.SatellizerConfig.withCredentials });
   }

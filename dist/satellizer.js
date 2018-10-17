@@ -27,6 +27,7 @@
                 facebook: {
                     name: 'facebook',
                     url: '/auth/facebook',
+                    accessTokenUrl: 'https://graph.facebook.com/v2.5/oauth/access_token',
                     authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
                     redirectUri: window.location.origin + '/',
                     requiredUrlParams: ['display', 'scope'],
@@ -39,6 +40,7 @@
                 google: {
                     name: 'google',
                     url: '/auth/google',
+                    accessTokenUrl: 'https://accounts.google.com/o/oauth2/token',
                     authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
                     redirectUri: window.location.origin,
                     requiredUrlParams: ['scope'],
